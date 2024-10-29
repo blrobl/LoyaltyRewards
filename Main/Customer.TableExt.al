@@ -8,11 +8,21 @@ tableextension 50103 "Customer Ext" extends Customer
             ToolTip = 'Specifies the level of reward that the customer has at this point.';
 
             trigger OnValidate();
-            begin
+            var
+                Cust: Record Customer;
+            begin// 
                 // If the "Reward ID" changed and the new record is blocked, an error is thrown. 
-                if (Rec."Reward ID" <> xRec."Reward ID") and
-                    (Rec.Blocked <> Blocked::" ") then begin
-                    Error('Cannot update the rewards status of a blocked customer.')
+                if (Rec."Reward ID" <> xRec."Reward ID") then begin
+                    if (Rec.Blocked <> Blocked::" ") then
+                        Error('Cannot update the rewards status of a blocked customer.');
+
+                    Cust.LockTable();
+                    if Cust.FindSet() then begin
+                        repeat
+                            if (Cust."Reward ID" = Rec."Reward ID") then
+                                Error('The reward level is already assigned to another customer.');
+                        until Cust.Next() = 0;
+                    end;
                 end;
             end;
         }

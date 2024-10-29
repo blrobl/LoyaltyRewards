@@ -40,7 +40,7 @@ codeunit 50100 AssignRewardLevel
                         LatestRewardLevel := Reward."Reward ID";
                     until Reward.Next() = 0;
                 end;
-                // Return the latest reward level if no match found
+                // Return the latest reward level if no match found               
                 Customer."Reward ID" := LatestRewardLevel;
                 Customer.Modify();
             until Customer.Next() = 0;

@@ -17,10 +17,10 @@
             "type": "al",
             "environmentType": "Sandbox",
             "environmentName": "Directions",
-            "sessionId": 9071,
+            "sessionId": 32702,
             "breakOnNext": "WebClient",
             "breakOnError": "ExcludeTry",
-            "tenant": "ffa32acf-5c71-4055-a4fe-6ad1d3526060"
+            "tenant": "35d73e7b-74c1-4b32-8b63-241fb858afe8"
         },
         {
             "name": "AL: Generated Download Symbols request",
