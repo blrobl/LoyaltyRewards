@@ -28,9 +28,5 @@
     "features": [
         "NoImplicitWith"
     ],
-    "runtime": "14.0",
-    "source": {
-        "repositoryUrl": "https://github.com/blrobl/BCLE-Demo",
-        "commit": "e13c10951d270e0ecc6de3b0a3d0d4ababffb3ed"
-    }
+    "runtime": "14.0"
 }

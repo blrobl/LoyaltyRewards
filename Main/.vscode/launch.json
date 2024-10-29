@@ -4,8 +4,8 @@
             "name": "AL: Generated Snapshot request",
             "request": "snapshotInitialize",
             "type": "al",
-            "environmentType": "Production",
-            "environmentName": "app54904_plat25664_US_26-0",
+            "environmentType": "Sandbox",
+            "environmentName": "Directions",
             "sessionId": 5544,
             "executionContext": "DebugAndProfile",
             "tenant": "ffa32acf-5c71-4055-a4fe-6ad1d3526060",
@@ -16,7 +16,7 @@
             "request": "attach",
             "type": "al",
             "environmentType": "Sandbox",
-            "environmentName": "Sandbox",
+            "environmentName": "Directions",
             "sessionId": 9071,
             "breakOnNext": "WebClient",
             "breakOnError": "ExcludeTry",
@@ -27,7 +27,7 @@
             "request": "launch",
             "type": "al",
             "environmentType": "Sandbox",
-            "environmentName": "Preview_DK",
+            "environmentName": "Directions",
             "tenant": "35d73e7b-74c1-4b32-8b63-241fb858afe8"
         }
     ]
