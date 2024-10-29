@@ -1,0 +1,36 @@
+{
+    "id": "91d1d96f-5312-468c-9845-ae113a9d363b",
+    "name": "Loyalty Rewards Demo",
+    "publisher": "BCLE",
+    "version": "3.0.0.0",
+    "brief": "Provides functionality to add loyalty rewards for customers.",
+    "description": "Provides functionality to add loyalty rewards for customers.",
+    "privacyStatement": "https://go.microsoft.com/fwlink/?linkid=724009",
+    "EULA": "https://go.microsoft.com/fwlink/?linkid=724013",
+    "help": "",
+    "url": "",
+    "logo": "",
+    "dependencies": [],
+    "screenshots": [],
+    "platform": "1.0.0.0",
+    "application": "25.0.0.0",
+    "idRanges": [
+        {
+            "from": 50100,
+            "to": 50149
+        }
+    ],
+    "resourceExposurePolicy": {
+        "allowDebugging": true,
+        "allowDownloadingSource": false,
+        "includeSourceInSymbolFile": true
+    },
+    "features": [
+        "NoImplicitWith"
+    ],
+    "runtime": "14.0",
+    "source": {
+        "repositoryUrl": "https://github.com/blrobl/BCLE-Demo",
+        "commit": "e13c10951d270e0ecc6de3b0a3d0d4ababffb3ed"
+    }
+}

@@ -1,0 +1,4 @@
+{
+    "al.codeAnalyzers": ["${PerTenantExtensionCop}"],
+    "al.enableCodeAnalysis": true,
+}
