@@ -3,6 +3,19 @@ codeunit 50105 RewardsInstall
     // Set the codeunit to be an install codeunit. 
     Subtype = Install;
 
+    trigger OnRun()
+    var
+        JobQueueEntry: Record "Job Queue Entry";
+    begin
+        JobQueueEntry.Init();
+        JobQueueEntry."Object Type to Run" := JobQueueEntry."Object Type to Run"::Codeunit;
+        JobQueueEntry."Object ID to Run" := Codeunit::AssignRewardLevel;
+        JobQueueEntry.Description := 'Assign Reward Level to Customers';
+        JobQueueEntry."Recurring Job" := true;
+        JobQueueEntry."Run on Thursdays" := true;
+        JobQueueEntry.Insert(true);
+    end;
+
     // This trigger includes code for company-related operations. 
     trigger OnInstallAppPerCompany();
     var

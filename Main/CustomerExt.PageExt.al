@@ -46,46 +46,15 @@ pageextension 50107 "Customer Page Ext" extends "Customer List"
                 ToolTip = 'Assigns a reward level to the selected customer based on their number of orders.';
 
                 trigger OnAction()
+                var
+                    AssignRewardLevelCodeunit: Codeunit AssignRewardLevel;
                 begin
-                    AssignRewardLevelToCustomers();
+                    AssignRewardLevelCodeunit.AssignRewardLevelToCustomers();
                     Message('Done!');
                 end;
             }
         }
     }
-
-    procedure AssignRewardLevelToCustomers();
-    var
-        Customer: Record Customer;
-        Reward: Record Reward;
-        LatestRewardLevel: Code[30];
-    begin
-        // Lock the customer table for modification before any checks
-        Customer.LockTable();
-
-        // Loop through all customers
-        if Customer.FindSet() then begin
-            repeat
-                DoSomeProcessing();
-                // Loop through all reward records ordered by minimum purchase
-                if Reward.FindSet(true) then begin
-                    Reward.SetCurrentKey("Minimum Purchase");
-                    LatestRewardLevel := Reward."Reward ID";
-                    repeat
-                        // Compare the minimum purchase with the customer's number of orders
-                        if Customer."Inv. Amounts (LCY)" <= Reward."Minimum Purchase" then
-                            // Return the latest reward level
-                            break;
-                        // Update the latest reward level
-                        LatestRewardLevel := Reward."Reward ID";
-                    until Reward.Next() = 0;
-                end;
-                // Return the latest reward level if no match found
-                Customer."Reward ID" := LatestRewardLevel;
-                Customer.Modify();
-            until Customer.Next() = 0;
-        end;
-    end;
 
     procedure AddMockCustomers()
     var
@@ -103,16 +72,11 @@ pageextension 50107 "Customer Page Ext" extends "Customer List"
                 Customer."Phone No." := '123-456-7890';
 
                 // Generate a random number for "Inv. Amounts (LCY)"
-                RandomNumber := Random(10000) + Random(100) / 100; // Random number between 0 and 9999.99
+                RandomNumber := Random(100000) + Random(100) / 100; // Random number between 0 and 99999.99
                 Customer."Inv. Amounts (LCY)" := RandomNumber;
 
                 Customer.Insert();
             end;
         end;
-    end;
-
-    procedure DoSomeProcessing()
-    begin
-        Sleep(100);
     end;
 }

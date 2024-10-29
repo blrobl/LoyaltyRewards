@@ -1,8 +1,8 @@
 {
     "id": "91d1d96f-5312-468c-9845-ae113a9d363b",
     "name": "Loyalty Rewards Demo",
-    "publisher": "BCLE",
-    "version": "3.0.0.0",
+    "publisher": "Directions EMEA",
+    "version": "1.0.0.0",
     "brief": "Provides functionality to add loyalty rewards for customers.",
     "description": "Provides functionality to add loyalty rewards for customers.",
     "privacyStatement": "https://go.microsoft.com/fwlink/?linkid=724009",
@@ -28,5 +28,9 @@
     "features": [
         "NoImplicitWith"
     ],
-    "runtime": "14.0"
+    "runtime": "14.0",
+    "source": {
+        "repositoryUrl": "https://github.com/blrobl/LoyaltyRewards",
+        "commit": "8046f528d233e8f38c321fe4e962bad4ccce0007"
+    }
 }
