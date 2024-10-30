@@ -15,9 +15,6 @@ codeunit 50100 AssignRewardLevel
         LatestRewardLevel: Code[30];
         Date: Date;
     begin
-        // Lock the customer table for modification before any checks
-        Customer.LockTable();
-
         // Reschedule the job if not allowed to run this day
         Date := Today();
         if DisAllowedDays.Contains(Date.DayOfWeek()) then
@@ -31,8 +28,12 @@ codeunit 50100 AssignRewardLevel
             repeat
                 ProcessCustomer();
                 // Assign the reward level to the customer based on their number of orders
-                Customer."Reward ID" := GetCustomerRewardLevel(Customer);
-                // Modify the customer record
+                LatestRewardLevel := GetCustomerRewardLevel(Customer);
+
+                // Lock and modify the customer record only when necessary
+                Customer.LockTable();
+                Customer.Get(Customer."No.");
+                Customer."Reward ID" := LatestRewardLevel;
                 Customer.Modify();
             until Customer.Next() = 0;
         end;
