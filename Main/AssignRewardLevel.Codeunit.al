@@ -15,9 +15,6 @@ codeunit 50100 AssignRewardLevel
         LatestRewardLevel: Code[30];
         Date: Date;
     begin
-        // Lock the customer table for modification before any checks
-        Customer.LockTable();
-
         // Reschedule the job if not allowed to run this day
         Date := Today();
         if DisAllowedDays.Contains(Date.DayOfWeek()) then
@@ -25,6 +22,9 @@ codeunit 50100 AssignRewardLevel
 
         // Update the Reward table with external rewards. Doesn't use the Customer
         ImportExternalRewards();
+
+        // Lock the customer table for modification before any checks
+        Customer.LockTable();
 
         // Loop through all customers
         if Customer.FindSet() then begin
