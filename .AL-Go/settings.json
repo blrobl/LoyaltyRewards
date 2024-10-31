@@ -1,6 +1,6 @@
 {
   "country": "us",
-  "appFolders": [],
+  "appFolders": ["main"],
   "testFolders": [],
-  "bcptTestFolders": []
+  "bcptTestFolders": ["LoyaltyRewards.PerformanceTest"]
 }
