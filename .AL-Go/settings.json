@@ -3,5 +3,5 @@
   "appFolders": ["main"],
   "testFolders": [],
   "bcptTestFolders": ["LoyaltyRewards.PerformanceTest"],
-  "artifact": "bcinsider///us/latest"
+  "artifact": "//24.5/us/latest"
 }
